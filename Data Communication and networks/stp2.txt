@@ -1,0 +1,45 @@
+#include<stdio.h>
+int stpw();
+int stp();
+int i,j,n,ack,count=0;
+int a[];
+void main()
+{
+ stp();
+ stpw();
+}
+int stp()
+ {
+ printf("Enter the number of frames you want to enter: ");
+
+ scanf("%d",&n);
+ printf("\nEnter %d frames:\n",n);
+ for(i=0;i<n;i++)
+ {
+ scanf("%d",&a[i]);
+ }
+ return a[n],n;
+ }
+int stpw()
+ {
+ for(i=count;i<n;i++)
+ {
+ printf("\n\nThe following frame is being sent to Receiver: %d",a[i]);
+ printf("\nEnter the acknowlwdgement 0 or 1:");
+ scanf("%d",&ack);
+ if(ack==1)
+ {
+ printf("Acknowledgement is Received..");
+ printf("\nNext frame is being sent: %d",a[i+1]);
+ count++;
+ }
+ else
+ {
+ sleep(3);
+ printf("Acknowledgement is not Received, Resend The frame..");
+ i=count;
+ stpw();
+
+ }
+ }
+}
